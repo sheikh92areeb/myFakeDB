@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #d1d0d0;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+.title-section {
+    width: 100%;    
+    padding: 20px 50px;
+}
+
+.title-section h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.title-section p {
+    font-size: 20px;
+}
+
+.category-section {    
+    display: flex;    
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px 50px;
+}
+
+.category-list {
+    background-color: white;
+    height: 450px;
+    flex: 0 0 75%;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5);    
+}
+
+.category-list h2,
+.form-section h2 {
+    font-size: 24px;    
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d1d0d0;
+}
+
+.category-list ul {
+    list-style: none;
+    padding-right: 5px;
+    height: 350px;    
+    overflow-y: auto;
+}
+
+.category-list ul li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #d1d0d0;
+    font-size: 18px;    
+    padding: 8px 10px;
+    margin-bottom: 8px;
+}
+
+.category-list ul li .actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;            
+}
+
+.category-list ul li .actions button {
+    background-color: transparent;
+    color: green;    
+}
+
+.category-list ul li .actions button:last-child {
+    color: red;
+}
+
+.form-section {
+    background-color: white;
+    height: 450px;
+    flex: 0 0 25%;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+}
+
+.form-controll {
+    margin-bottom: 20px;
+}
+
+label {
+    width: 100%;
+    display: block;
+    font-size: 18x;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 100%;
+    font-size: 18px;
+    border: 1px solid #d1d0d0;   
+    outline: none;
+    padding: 8px 10px;
+}
+
+input:focus {
+    border: 1px solid black;   
+}
+
+button {
+    display: block;
+    border: none;
+    outline: none;    
+    cursor: pointer;
+}
+
+form button {
+    padding: 8px 16px;
+    background-color: #d1d0d0;
+}

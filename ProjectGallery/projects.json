@@ -1,5 +1,37 @@
 {
-    "Category": [
-        { "categoryName": "Projects", "subCategories": ["HTML", "React"] }
-    ]
+  "category": [
+    {
+      "categoryName": "HTML5",
+      "id": "93e9"
+    },
+    {
+      "id": "1de1",
+      "categoryName": "CSS"
+    },
+    {
+      "id": "14b0",
+      "categoryName": "React"
+    },
+    {
+      "id": "5a56",
+      "categoryName": "Node"
+    },
+    {
+      "id": "e727",
+      "categoryName": "Python"
+    },
+    {
+      "id": "c643",
+      "categoryName": "Streamlit"
+    },
+    {
+      "id": "db49",
+      "categoryName": "Components"
+    },
+    {
+      "id": "b95a",
+      "categoryName": "Navbars"
+    }
+  ],
+  "projects": []
 }
