@@ -1,106 +1,129 @@
-console.log("Play with some scripiting");
+console.log("Play with some scripting");
 
+// ---------------- APIs URL ---------------- //
 const categoryApi = "http://localhost:3000/category";
 const projectApi = "http://localhost:3000/projects";
 
-
-// ------ CATEGORY SECTION ------
+// ---------------- CATEGORY SECTION ---------------- //
 
 // Variables
 const categoryForm = document.getElementById("category-form");
 const categoryNameInput = document.getElementById("category");
-const categoryIdInput = document.getElementById("category-id")
+const categoryIdInput = document.getElementById("category-id");
 const categoryList = document.getElementById("list");
 
-// SHOW ALL CATEGORIES
-
-// Only fetch categories
+// Fetch categories
 async function fetchCategories() {
   try {
     const res = await fetch(categoryApi);
     if (!res.ok) throw new Error("Failed to fetch categories");
-    return await res.json(); // returns array
+    return await res.json();
   } catch (err) {
     console.error("Error fetching categories:", err);
     return [];
   }
 }
 
-// ✅ Render categories into DOM
+// Render categories
 function renderCategories(categories) {
-  categoryList.innerHTML = ""; // clear old list
+  categoryList.innerHTML = "";
 
-  categories.forEach(category => {
+  categories.forEach((category) => {
     const li = document.createElement("li");
-    li.innerHTML = `
-      <p>${category.categoryName}</p>
-      <span class="actions">
-        <button onclick="editCategory('${category.id}')">Edit</button>
-        <button onclick="deleteCategory('${category.id}')">Delete</button>
-      </span>
-    `;
+
+    const name = document.createElement("p");
+    name.textContent = category.categoryName;
+
+    const actions = document.createElement("span");
+    actions.classList.add("actions");
+
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "Edit";
+    editBtn.onclick = () => editCategory(category.id);
+
+    const delBtn = document.createElement("button");
+    delBtn.textContent = "Delete";
+    delBtn.onclick = () => deleteCategory(category.id);
+
+    actions.appendChild(editBtn);
+    actions.appendChild(delBtn);
+
+    li.appendChild(name);
+    li.appendChild(actions);
     categoryList.appendChild(li);
   });
-}
+};
 
-// ✅ Combined usage
+// Load categories
 async function loadCategories() {
   const categories = await fetchCategories();
   renderCategories(categories);
-}
+  renderCategorySelect(); // refresh dropdown as well
+};
 
-// ADD & UPDATE CATEGORY
-categoryForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const categoryName = categoryNameInput.value;
-    const categoryId = categoryIdInput.value;
+// Add/Update category
+categoryForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const categoryName = categoryNameInput.value.trim();
+  const categoryId = categoryIdInput.value;
 
-    const body = { categoryName };
+  if (!categoryName) return alert("Category name is required!");
 
+  const body = { categoryName };
+
+  try {
     if (categoryId) {
-        // Update Category
-        await fetch(`${categoryApi}/${categoryId}`, {
-            method:"PUT",
-            headers:  { "Content-Type": "application/json" },
-            body: JSON.stringify(body)
-        });
-    }else {
-        // Add Category
-        await fetch(categoryApi, {
-            method: "POST",
-            headers:  { "Content-Type": "application/json" },
-            body: JSON.stringify(body)
-        });
-    }
+      await fetch(`${categoryApi}/${categoryId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+    } else {
+      await fetch(categoryApi, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+    };
 
-    e.reset();
+    categoryForm.reset();
+    categoryIdInput.value = "";
+    await loadCategories();
+  } catch (err) {
+    console.error("Error saving category:", err);
+    alert("⚠️ Something went wrong while saving category.");
+  }
 });
 
-// EDIT CATEGORY
+// Edit category
 async function editCategory(id) {
-    const data = await fetch(`${categoryApi}/${id}`);
-    const response = await data.json();
+  try {
+    const res = await fetch(`${categoryApi}/${id}`);
+    const data = await res.json();
+    categoryIdInput.value = data.id;
+    categoryNameInput.value = data.categoryName;
+  } catch (err) {
+    console.error("Error editing category:", err);
+  }
+}
 
-    categoryIdInput.value = response.id;
-    categoryNameInput.value = response.categoryName;
-};
-
-// DELETE CATEGORY
+// Delete category
 async function deleteCategory(id) {
-    await fetch(`${categoryApi}/${id}`, { method:"DELETE" });    
-    loadCategories();
-};
+  if (!confirm("Are you sure you want to delete this category?")) return;
+  try {
+    await fetch(`${categoryApi}/${id}`, { method: "DELETE" });
+    await loadCategories();
+  } catch (err) {
+    console.error("Error deleting category:", err);
+  }
+}
 
-// LOAD DATA
-loadCategories();
-
-
-// ------ PROJECT SECTION ------
+// ---------------- PROJECT SECTION ---------------- //
 
 // Variables
-const projectList = document.getElementById('project-list');
+const projectList = document.getElementById("project-list");
 const projectForm = document.getElementById("project-form");
-const categorySelect = document.getElementById('categorySelect');
+const categorySelect = document.getElementById("categorySelect");
 
 const projectId = document.getElementById("projectId");
 const projectTitle = document.getElementById("title");
@@ -112,147 +135,138 @@ const projectFeatures = document.getElementById("features");
 const projectStack = document.getElementById("tech_stack");
 const projectImgs = document.getElementById("images");
 
-// utility: split comma string into array
+// Utility: split comma string into array
 function toArray(str) {
-    return str.split(",").map(s => s.trim()).filter(Boolean);
+  return str.split(",").map((s) => s.trim()).filter(Boolean);
 }
 
-// Show Categories in Select
+// Render category dropdown
 async function renderCategorySelect() {
-    categorySelect.innerHTML = '<option value="" disabled selected>Select Category</option>';
-    const categories = await fetchCategories(categoryApi);
-    categories.forEach(category => {
-        const option = document.createElement("option");
-        option.innerHTML = `
-            <option value="${category.categoryName}">${category.categoryName}</option>
-        `;
+  categorySelect.innerHTML = '<option value="" disabled selected>Select Category</option>';
+
+  const categories = await fetchCategories();
+  categories.forEach((category) => {
+    const option = document.createElement("option");
+    option.value = category.categoryName;
+    option.textContent = category.categoryName;
     categorySelect.appendChild(option);
-  });    
+  });
 }
 
-renderCategorySelect();
-
-// Show Projects
+// Fetch projects
 async function fetchProjects() {
   try {
     const res = await fetch(projectApi);
-    if (!res.ok) throw new Error("Failed to fetch categories");
-    return await res.json(); // returns array
+    if (!res.ok) throw new Error("Failed to fetch projects");
+    return await res.json();
   } catch (err) {
-    console.error("Error fetching categories:", err);
+    console.error("Error fetching projects:", err);
     return [];
   }
 }
 
+// Render projects
 function renderProjects(projects) {
-  projectList.innerHTML = ""; // clear old list
+  projectList.innerHTML = "";
 
-  projects.forEach(project => {
+  projects.forEach((project) => {
     const li = document.createElement("li");
     li.innerHTML = `
-        <div class="card">
-            <div class="card-img">
-                <img src="${project.images[0]}" alt="Project Image">
-            </div>
-            <div class="card-body">
-                <h3>${project.title}</h3>
-                <p>${project.short_description}</p>
-                <div class="buttons">
-                  <button onclick="editProject('${project.id}')">Edit</button>
-                  <button onclick="deleteProject('${project.id}')">Delete</button>
-                </div>
-            </div>
+      <div class="card">
+        <div class="card-img">
+          <img src="${ project.images?.[0] || "default.jpg" }" alt="Project Image">
         </div>
+        <div class="card-body">
+          <h3>${project.title}</h3>
+          <p>${project.short_description}</p>
+          <div class="buttons">
+            <button onclick="editProject('${project.id}')">Edit</button>
+            <button onclick="deleteProject('${project.id}')">Delete</button>
+          </div>
+        </div>
+      </div>
     `;
     projectList.appendChild(li);
   });
 }
 
-// ✅ Combined usage
+// Load projects
 async function loadProjects() {
   const projects = await fetchProjects();
   renderProjects(projects);
 }
 
+// Submit project form
+projectForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const id = projectId.value;
 
-// Submit Form 
-projectForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const id = projectId.value;
+  const data = {
+    title: projectTitle.value.trim(),
+    short_description: projectShortDesc.value.trim(),
+    description: projectDesc.value.trim(),
+    category: projectSelect.value,
+    tags: toArray(projectTags.value),
+    features: toArray(projectFeatures.value),
+    techStack: toArray(projectStack.value),
+    images: toArray(projectImgs.value),
+  };
 
-    const data = {
-        title: projectTitle.value,
-        short_description: projectShortDesc.value,
-        description: projectDesc.value,
-        category: projectSelect.value,
-        tags: toArray(projectTags.value),
-        features: toArray(projectFeatures.value),
-        techStack: toArray(projectStack.value),
-        images: toArray(projectImgs.value),
-      };
+  if (!data.title || !data.short_description || !data.description || !data.category) {
+    return alert("⚠️ Please fill all required fields!");
+  }
 
-    if (id) {
-        try {
-            const res = await fetch(`${projectApi}/${id}`, {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
-            });
+  try {
+    const res = await fetch(id ? `${projectApi}/${id}` : projectApi, {
+      method: id ? "PUT" : "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
 
-            if (res.ok) {
-                const result = await res.json();
-                alert("✅ Project submitted successfully!");
-                console.log("Server response:", result);
-                e.target.reset();
-            }
-
-        } catch (err) {
-            console.error(err);
-            alert("⚠️ Something went wrong while submitting.");
-        }    
-    } else {
-        try {
-            const res = await fetch(projectApi, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
-            });
-
-            if (res.ok) {
-                const result = await res.json();
-                alert("✅ Project submitted successfully!");
-                console.log("Server response:", result);
-                e.target.reset();
-            }
-
-        } catch (err) {
-            console.error(err);
-            alert("⚠️ Something went wrong while submitting.");
-        }
+    if (res.ok) {
+      await res.json();
+      alert("✅ Project saved successfully!");
+      projectForm.reset();
+      projectId.value = "";
+      await loadProjects();
     }
-})
+  } catch (err) {
+    console.error("Error saving project:", err);
+    alert("⚠️ Something went wrong while saving project.");
+  }
+});
 
-// Edit Project 
+// Edit project
 async function editProject(id) {
-  const data = await fetch(`${projectApi}/${id}`);
-  const response = await data.json();
+  try {
+    const res = await fetch(`${projectApi}/${id}`);
+    const data = await res.json();
 
-  projectId.value = response.id;
-  projectTitle.value = response.title;
-  projectShortDesc.value = response.short_description;
-  projectDesc.value = response.description;
-  projectSelect.value = response.category;
-  projectTags.value = response.tags.toString();
-  projectFeatures.value = response.features.toString();
-  projectStack.value = response.techStack.toString();
-  projectImgs.value = response.images.toString();  
-};
+    projectId.value = data.id;
+    projectTitle.value = data.title;
+    projectShortDesc.value = data.short_description;
+    projectDesc.value = data.description;
+    projectSelect.value = data.category;
+    projectTags.value = (data.tags || []).join(", ");
+    projectFeatures.value = (data.features || []).join(", ");
+    projectStack.value = (data.techStack || []).join(", ");
+    projectImgs.value = (data.images || []).join(", ");
+  } catch (err) {
+    console.error("Error editing project:", err);
+  }
+}
 
-// DELETE Project
+// Delete project
 async function deleteProject(id) {
-    await fetch(`${projectApi}/${id}`, { method:"DELETE" });    
-    loadProjects();
-};
+  if (!confirm("Are you sure you want to delete this project?")) return;
+  try {
+    await fetch(`${projectApi}/${id}`, { method: "DELETE" });
+    await loadProjects();
+  } catch (err) {
+    console.error("Error deleting project:", err);
+  }
+}
 
-// Load Projects
+// ---------------- INIT ---------------- //
+loadCategories();
 loadProjects();

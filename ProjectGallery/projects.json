@@ -5,10 +5,6 @@
       "id": "93e9"
     },
     {
-      "id": "1de1",
-      "categoryName": "CSS"
-    },
-    {
       "id": "14b0",
       "categoryName": "React"
     },
@@ -21,16 +17,8 @@
       "categoryName": "Python"
     },
     {
-      "id": "c643",
-      "categoryName": "Streamlit"
-    },
-    {
       "id": "db49",
       "categoryName": "Components"
-    },
-    {
-      "id": "b95a",
-      "categoryName": "Navbars"
     }
   ],
   "projects": [
