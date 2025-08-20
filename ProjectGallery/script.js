@@ -102,6 +102,15 @@ const projectList = document.getElementById('project-list');
 const projectForm = document.getElementById("project-form");
 const categorySelect = document.getElementById('categorySelect');
 
+const projectId = document.getElementById("projectId");
+const projectTitle = document.getElementById("title");
+const projectShortDesc = document.getElementById("short_description");
+const projectDesc = document.getElementById("description");
+const projectSelect = document.getElementById("categorySelect");
+const projectTags = document.getElementById("tags");
+const projectFeatures = document.getElementById("features");
+const projectStack = document.getElementById("tech_stack");
+const projectImgs = document.getElementById("images");
 
 // utility: split comma string into array
 function toArray(str) {
@@ -148,8 +157,9 @@ function renderProjects(projects) {
             <div class="card-body">
                 <h3>${project.title}</h3>
                 <p>${project.short_description}</p>
-                <div class="tags">
-                    ${project.tags.map(tag => `<span>${tag}</span>`).join('')}
+                <div class="buttons">
+                  <button onclick="editProject('${project.id}')">Edit</button>
+                  <button onclick="deleteProject('${project.id}')">Delete</button>
                 </div>
             </div>
         </div>
@@ -164,22 +174,21 @@ async function loadProjects() {
   renderProjects(projects);
 }
 
-loadProjects();
 
 // Submit Form 
 projectForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const id = document.getElementById("projectId").value;
+    const id = projectId.value;
 
     const data = {
-        title: document.getElementById("title").value,
-        short_description: document.getElementById("short_description").value,
-        description: document.getElementById("description").value,
-        category: document.getElementById("categorySelect").value,
-        tags: toArray(document.getElementById("tags").value),
-        features: toArray(document.getElementById("features").value),
-        techStack: toArray(document.getElementById("tech_stack").value),
-        images: toArray(document.getElementById("images").value),
+        title: projectTitle.value,
+        short_description: projectShortDesc.value,
+        description: projectDesc.value,
+        category: projectSelect.value,
+        tags: toArray(projectTags.value),
+        features: toArray(projectFeatures.value),
+        techStack: toArray(projectStack.value),
+        images: toArray(projectImgs.value),
       };
 
     if (id) {
@@ -223,3 +232,27 @@ projectForm.addEventListener('submit', async (e) => {
     }
 })
 
+// Edit Project 
+async function editProject(id) {
+  const data = await fetch(`${projectApi}/${id}`);
+  const response = await data.json();
+
+  projectId.value = response.id;
+  projectTitle.value = response.title;
+  projectShortDesc.value = response.short_description;
+  projectDesc.value = response.description;
+  projectSelect.value = response.category;
+  projectTags.value = response.tags.toString();
+  projectFeatures.value = response.features.toString();
+  projectStack.value = response.techStack.toString();
+  projectImgs.value = response.images.toString();  
+};
+
+// DELETE Project
+async function deleteProject(id) {
+    await fetch(`${projectApi}/${id}`, { method:"DELETE" });    
+    loadProjects();
+};
+
+// Load Projects
+loadProjects();

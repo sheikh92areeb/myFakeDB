@@ -88,12 +88,14 @@ body {
     gap: 8px;            
 }
 
-.category-list ul li .actions button {
+.category-list ul li .actions button,
+.card-body .buttons button {
     background-color: transparent;
     color: green;    
 }
 
-.category-list ul li .actions button:last-child {
+.category-list ul li .actions button:last-child,
+.card-body .buttons button:last-child {
     color: red;
 }
 
@@ -172,6 +174,7 @@ form button {
 .card {
     display: flex;
     padding: 10px;
+    margin-bottom: 10px;
 }
 
 .card-img {
@@ -199,15 +202,8 @@ form button {
     margin-bottom: 15px;
 }
 
-.card-body .tags {
+.card-body .buttons {
     display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-
-.tags span {
-    font-size: 12px;
-    color: #f5f5f5;
-    background-color: #d1d0d0;
-    padding: 2px 8px;
+    gap: 10px;
+    justify-content: end;
 }
