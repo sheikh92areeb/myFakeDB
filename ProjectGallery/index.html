@@ -11,6 +11,7 @@
         <h1>Project Gellary</h1>
         <p>Manage Project Gallary data here</p>
     </section>
+
     <section class="category-section">
         <div class="category-list">
             <h2>My Categories</h2>
@@ -30,6 +31,81 @@
                     <button type="submit" >Submit</button>
                 </div>
             </form>
+        </div>
+    </section>
+
+    <section class="project-section">
+
+        <div class="project-list">
+             <h2>My Projects</h2>
+             <ul id="project-list">
+                <li>
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://res.cloudinary.com/dfdzkqstt/image/upload/v1755680854/Screenshot_622_j3hrer.png" alt="">
+                        </div>
+                        <div class="card-body">
+                            <h3>Project title</h3>
+                            <p>short description</p>
+                            <div class="tags">
+                                <span>React</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+             </ul>
+        </div>   
+
+        <div class="project-form">
+             <h2>Project Form</h2>
+             <form id="project-form">
+                <input type="hidden" name="id" id="projectId" value="" />
+
+                <div class="form-controll">
+                    <label for="title">Project Title</label>
+                    <input type="text" id="title" name="title" required />
+                </div>
+
+                <div class="form-controll">
+                    <label for="short_description">Short Description</label>
+                    <input type="text" id="short_description" name="short_description" required />
+                </div>
+
+                <div class="form-controll">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="5" required></textarea>
+                </div>
+
+                <div class="form-controll">
+                    <label for="categorySelect">Category</label>
+                    <select id="categorySelect" name="category" required>
+                        <option value="" disabled selected>Select Category</option>
+                        <option value="web_app">Web App</option>                        
+                    </select>
+                </div>
+
+                <div class="form-controll">
+                    <label for="tags">Tags (comma-separated)</label>
+                    <input type="text" id="tags" />
+                </div>
+
+                <div class="form-controll">
+                    <label for="features">Features (comma-separated)</label>
+                    <input type="text" id="features" />
+                </div>
+
+                <div class="form-controll">
+                    <label for="tech_stack">Tech Stack (comma-separated)</label>
+                    <input type="text" id="tech_stack" />
+                </div>
+
+                <div class="form-controll">
+                    <label for="images">Image URLs (comma-separated)</label>
+                    <input type="text" id="images" />
+                </div>
+                
+                <button type="submit">Submit Project</button>
+             </form>
         </div>
     </section>
 
