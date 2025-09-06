@@ -162,7 +162,7 @@ form button {
 .project-list ul {
     list-style: none;
     padding-right: 5px;
-    height: 500px;
+    height: 1000px;
     overflow-y: auto;   
 }
 

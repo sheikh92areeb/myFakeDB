@@ -7,6 +7,10 @@
     {
       "id": "14b0",
       "categoryName": "React"
+    },
+    {
+      "id": "a48f",
+      "categoryName": "JavaScript"
     }
   ],
   "projects": [
@@ -94,6 +98,84 @@
       "links": {
         "github": "",
         "live": "https://weather-app-118.netlify.app/"
+      }
+    },
+    {
+      "id": "ad2b",
+      "title": "My To-Do App – Simple To-Do App",
+      "short_description": "A lightweight and minimal to-do application built with HTML, CSS, and JavaScript that allows users to add daily tasks quickly.",
+      "description": "My To-Do App is a simple to-do list web application developed with HTML, CSS, and JavaScript. The app focuses on simplicity and provides users the ability to add tasks instantly without complex features. It is designed as a practice project to demonstrate dynamic DOM manipulation, event handling, and responsive UI with vanilla JavaScript. This project highlights the fundamentals of creating interactive front-end applications without external libraries or frameworks. While the app does not persist data (tasks reset on refresh), it showcases essential web development skills such as capturing user input, rendering elements dynamically, and handling basic user interactions. My To-Do App reflects my ability to build clean, responsive, and beginner-friendly web apps that prioritize usability and simplicity.",
+      "category": "JavaScript",
+      "tags": [
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Frontend Development",
+        "To-Do App",
+        "Vanilla JS",
+        "Dynamic DOM",
+        "Practice Project"
+      ],
+      "features": [
+        "Add Tasks Instantly – quick input for creating tasks",
+        "Dynamic DOM Manipulation – tasks appear instantly without reload",
+        "Lightweight and Simple – minimal UI for quick usage",
+        "Responsive Layout – accessible on both desktop and mobile",
+        "Beginner-Friendly Code – ideal for learning basic JavaScript"
+      ],
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "images": [
+        "https://res.cloudinary.com/dfdzkqstt/image/upload/v1757185203/Screenshot_2025-03-11_001934_cidnqm.png"
+      ],
+      "links": {
+        "github": "https://github.com/sheikh92areeb/PSDC-Full-Course/tree/main/assignments/assignment-19",
+        "live": "https://todo-118.netlify.app/"
+      }
+    },
+    {
+      "id": "0f50",
+      "title": "aTask | Your Tasks Manager",
+      "short_description": "A full-featured task manager built with React and Tailwind CSS, offering task creation, editing, deletion, completion tracking, and data persistence using local storage.",
+      "description": "aTask is a modern and fully functional to-do application designed to manage daily tasks efficiently. Developed with React and styled using Tailwind CSS, the app provides a seamless and intuitive user experience. Users can add, edit, delete, and mark tasks as completed with real-time UI updates.\\n\\nUnlike basic to-do apps, aTask incorporates data persistence through local storage, ensuring that tasks remain saved even after refreshing the page or closing the browser. The clean and responsive design makes it accessible across all devices, from smartphones to desktops.\\n\\nThis project reflects my skills in building feature-rich front-end applications using React, managing component state effectively, applying Tailwind utility classes for rapid styling, and implementing local storage for offline data persistence.",
+      "category": "React",
+      "tags": [
+        "ReactJS",
+        "Tailwind CSS",
+        "Local Storage",
+        "Frontend Development",
+        "Task Manager",
+        "To-Do App",
+        "CRUD Operations",
+        "Responsive Design",
+        "State Management"
+      ],
+      "features": [
+        "Add New Tasks – quickly capture tasks with a simple form",
+        "Edit Existing Tasks – update task details dynamically",
+        "Delete Tasks – remove unwanted tasks instantly",
+        "Mark as Completed – toggle tasks between done and active states",
+        "View Completed Tasks – filter and display finished tasks",
+        "Local Storage Integration – persist data across sessions",
+        "Responsive Design – optimized for all devices",
+        "Modern UI with Tailwind CSS – clean and professional look"
+      ],
+      "techStack": [
+        "React",
+        "Tailwind CSS",
+        "JavaScript",
+        "Local Storage"
+      ],
+      "images": [
+        "https://res.cloudinary.com/dfdzkqstt/image/upload/v1757185177/Screenshot_585_dyyc29.png",
+        "https://res.cloudinary.com/dfdzkqstt/image/upload/v1757185206/Screenshot_2025-04-01_154932_dfpq3k.png"
+      ],
+      "links": {
+        "github": "https://github.com/sheikh92areeb/todo-react-app",
+        "live": "https://atask-18.netlify.app/"
       }
     }
   ]
