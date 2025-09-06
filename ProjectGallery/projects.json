@@ -1,24 +1,12 @@
 {
   "category": [
     {
-      "categoryName": "HTML5",
+      "categoryName": "HTML",
       "id": "93e9"
     },
     {
       "id": "14b0",
       "categoryName": "React"
-    },
-    {
-      "id": "5a56",
-      "categoryName": "Node"
-    },
-    {
-      "id": "e727",
-      "categoryName": "Python"
-    },
-    {
-      "id": "db49",
-      "categoryName": "Components"
     }
   ],
   "projects": [

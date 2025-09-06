@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start_projects" :"json-server --watch ./ProjectGallery/projects.json"
+    "tailwind": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch",
+    "start_projects": "json-server --watch ./ProjectGallery/projects.json"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,9 @@
   "homepage": "https://github.com/sheikh92areeb/myFakeDB#readme",
   "devDependencies": {
     "json-server": "^1.0.0-beta.3"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.13",
+    "tailwindcss": "^4.1.13"
   }
 }

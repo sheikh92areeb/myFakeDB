@@ -3,11 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
-<body>
-    <ul>
-        <li><a href="./ProjectGallery/index.html">Project Gallery</a></li>
-    </ul>
+<body class="bg-gray-50">
+    <header class="bg-gray-200 px-30 py-2 shadow-[rgba(0,0,0,0.3)] shadow-lg">
+        <div class="logo flex items-center gap-3">
+            <span class="w-12 h-12 bg-red-600 text-gray-900 text-3xl font-bold rounded-lg grid place-items-center">FD</span>
+            <h1 class="text-gray-900 text-3xl font-semibold">My Personal DataBase</h1>
+        </div>
+    </header>
+
+    <main class="px-30 py-5">
+        <h2 class="text-gray-900 text-2xl border-b pb-2 mb-6">Databases</h2>
+
+        <ul>
+            <li class="bg-gray-200 text-gray-900 text-lg mb-3">
+                <a href="./ProjectGallery/index.html" class="w-full px-4 py-2 flex items-center justify-between">
+                    Project Gallery
+                    <i class="fa-solid fa-caret-right"></i>
+                </a>
+            </li>            
+        </ul>
+
+    </main>
 </body>
 </html>
