@@ -134,6 +134,8 @@ const projectTags = document.getElementById("tags");
 const projectFeatures = document.getElementById("features");
 const projectStack = document.getElementById("tech_stack");
 const projectImgs = document.getElementById("images");
+const projectGithub = document.getElementById("github");
+const projectLive = document.getElementById("live");
 
 // Utility: split comma string into array
 function toArray(str) {
@@ -210,6 +212,10 @@ projectForm.addEventListener("submit", async (e) => {
     features: toArray(projectFeatures.value),
     techStack: toArray(projectStack.value),
     images: toArray(projectImgs.value),
+    links: {
+      github: projectGithub.value.trim(),
+      live: projectLive.value.trim()
+    }
   };
 
   if (!data.title || !data.short_description || !data.description || !data.category) {
@@ -251,6 +257,8 @@ async function editProject(id) {
     projectFeatures.value = (data.features || []).join(", ");
     projectStack.value = (data.techStack || []).join(", ");
     projectImgs.value = (data.images || []).join(", ");
+    projectGithub.value = data.links.github,
+    projectLive.value = data.links.live
   } catch (err) {
     console.error("Error editing project:", err);
   }
