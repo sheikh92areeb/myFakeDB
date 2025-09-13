@@ -177,6 +177,47 @@
         "github": "https://github.com/sheikh92areeb/todo-react-app",
         "live": "https://atask-18.netlify.app/"
       }
+    },
+    {
+      "id": "2a95",
+      "title": "My Calculator – Futuristic Calculator App",
+      "short_description": "A modern and futuristic calculator built with React, designed with a sleek responsive UI to handle all basic arithmetic operations.",
+      "description": "My Calculator is a basic calculator application developed using React with a modern, futuristic design. It supports all essential arithmetic operations including addition, subtraction, multiplication, and division. The app focuses on delivering a clean and responsive interface, providing users with a smooth and intuitive experience across all devices.\\n\\nWith a focus on usability and aesthetics, CalcX combines functional performance with a visually appealing design. Its modular React component structure ensures scalability and maintainability, while the responsive layout adapts perfectly to both mobile and desktop environments.\\n\\nThis project highlights my expertise in building interactive React applications, designing futuristic user interfaces, and managing application state for real-time updates.",
+      "category": "React",
+      "tags": [
+        "ReactJS",
+        "Calculator",
+        "Frontend Development",
+        "Responsive Design",
+        "UI/UX Design",
+        "Futuristic Design",
+        "Arithmetic Operations",
+        "Portfolio Project"
+      ],
+      "features": [
+        "Addition – perform quick and accurate sums",
+        "Subtraction – calculate differences between numbers",
+        "Multiplication – handle multiple factors easily",
+        "Division – perform precise division operations",
+        "Clear & Reset Function – reset calculations with one click",
+        "Responsive Design – works seamlessly on mobile and desktop",
+        "Futuristic UI – modern and sleek design with advanced styling"
+      ],
+      "techStack": [
+        "React",
+        "CSS",
+        "JavaScript",
+        "Tailwind"
+      ],
+      "images": [
+        "https://res.cloudinary.com/dfdzkqstt/image/upload/v1757788605/Screenshot_629_f3uuhu.png",
+        "https://res.cloudinary.com/dfdzkqstt/image/upload/v1757788605/Screenshot_2025-09-13_233525_kouywp.png",
+        "https://res.cloudinary.com/dfdzkqstt/image/upload/v1757788605/Screenshot_630_ytetbc.png"
+      ],
+      "links": {
+        "github": "https://github.com/sheikh92areeb/react.js-projects/tree/main/Basic-Projects/02-Basic-Calculator",
+        "live": "https://my-calculator-18.netlify.app/"
+      }
     }
   ]
 }
