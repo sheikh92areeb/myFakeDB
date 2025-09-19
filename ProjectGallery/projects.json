@@ -218,6 +218,120 @@
         "github": "https://github.com/sheikh92areeb/react.js-projects/tree/main/Basic-Projects/02-Basic-Calculator",
         "live": "https://my-calculator-18.netlify.app/"
       }
+    },
+    {
+      "id": "4ee1",
+      "title": "CountEasy – Simple Counter App",
+      "short_description": "A clean and modern counter app built with HTML, CSS, and JavaScript featuring increment, decrement, and reset functions.",
+      "description": "CountEasy is a lightweight and interactive counter application created using pure HTML, CSS, and JavaScript. It features essential counter functionalities including increment, decrement, and reset, presented in a clean and modern user interface. \\n\\nThe app is designed with simplicity and responsiveness in mind, making it accessible on both desktop and mobile devices. Its minimalistic yet stylish design ensures a user-friendly experience while demonstrating the use of JavaScript for DOM manipulation and event handling. This project reflects my ability to create small but polished web applications, focusing on functionality, design, and responsive layout.",
+      "category": "JavaScript",
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Counter App",
+        "Frontend Project",
+        "Responsive Design",
+        "Modern UI",
+        "DOM Manipulation",
+        "Portfolio Project"
+      ],
+      "features": [
+        "Increment counter value",
+        "Decrement counter value",
+        "Reset counter to zero",
+        "Simple and modern design",
+        "Responsive layout for all devices",
+        "Interactive and user-friendly interface"
+      ],
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "images": [
+        "https://res.cloudinary.com/dfdzkqstt/image/upload/v1757185204/Screenshot_2025-03-11_002534_ejrzp8.png"
+      ],
+      "links": {
+        "github": "https://github.com/sheikh92areeb/PSDC-Full-Course/tree/main/assignments/assignment-18",
+        "live": "https://app-counter-18.netlify.app/"
+      }
+    },
+    {
+      "id": "5d50",
+      "title": "TeleCounter – Smart Counter App",
+      "short_description": "A modern counter app built with React and Tailwind CSS featuring increment, decrement, and reset functions with a sleek futuristic design.",
+      "description": "TeleCounter is a fully responsive and interactive counter application developed using React and Tailwind CSS. It provides core functionalities such as increment, decrement, and reset, all wrapped in a sleek, modern, and futuristic design. \\n\\nThis app demonstrates the use of React hooks for state management, Tailwind for efficient styling, and a clean component structure for scalability. Designed with responsiveness and usability in mind, TeleCounter adapts seamlessly across devices and offers a smooth user experience. \\n\\nThe project reflects my expertise in React component development, UI/UX design, and the integration of modern frontend tools to create polished, real-world-ready applications.",
+      "category": "React",
+      "tags": [
+        "React",
+        "Tailwind CSS",
+        "React Hooks",
+        "Counter App",
+        "Frontend Project",
+        "Responsive Design",
+        "Modern UI",
+        "Portfolio Project"
+      ],
+      "features": [
+        "Increment counter value",
+        "Decrement counter value",
+        "Reset counter to zero",
+        "Built with React functional components",
+        "Styled with Tailwind CSS",
+        "Responsive modern design",
+        "Smooth and user-friendly interface"
+      ],
+      "techStack": [
+        "React",
+        "Tailwind CSS",
+        "JavaScript",
+        "Vite"
+      ],
+      "images": [
+        "https://res.cloudinary.com/dfdzkqstt/image/upload/v1757185205/Screenshot_601_ihyuvp.png"
+      ],
+      "links": {
+        "github": "https://github.com/sheikh92areeb/react.js-projects/tree/main/Basic-Projects/01-Counter-App",
+        "live": "https://tele-counter-18.netlify.app/"
+      }
+    },
+    {
+      "id": "e14c",
+      "title": "Twitty – Twitter UI Clone",
+      "short_description": "A sleek and responsive Twitter clone built with HTML and Tailwind CSS, replicating the exact look and feel of Twitter’s modern interface.",
+      "description": "Twitty is a front-end clone of Twitter developed using HTML and Tailwind CSS. This project replicates the sleek and minimalistic user interface of Twitter, including its responsive layouts and modern design elements. \\n\\nIt’s crafted with precision to mirror Twitter’s UI closely, making it a great showcase of frontend development skills, attention to design detail, and mastery of Tailwind CSS utility classes. The project ensures responsiveness, allowing users to experience the Twitter-like design seamlessly on both desktop and mobile devices. \\n\\nThis project highlights my ability to create pixel-perfect UI clones, implement responsive layouts, and design professional interfaces using modern CSS frameworks.",
+      "category": "HTML",
+      "tags": [
+        "HTML",
+        "Tailwind CSS",
+        "Twitter Clone",
+        "Frontend Development",
+        "Responsive Design",
+        "Modern UI",
+        "Portfolio Project",
+        "CSS Framework"
+      ],
+      "features": [
+        "Pixel-perfect Twitter UI clone",
+        "Sleek and modern design",
+        "Responsive layout for all devices",
+        "Built entirely with HTML and Tailwind CSS",
+        "Lightweight and fast performance",
+        "Showcases frontend design skills"
+      ],
+      "techStack": [
+        "HTML",
+        "Tailwind CSS"
+      ],
+      "images": [
+        "https://res.cloudinary.com/dfdzkqstt/image/upload/v1757185207/Screenshot_2025-03-29_180957_ha9wwg.png",
+        "https://res.cloudinary.com/dfdzkqstt/image/upload/v1758305729/Screenshot_579_ynbwmh.png"
+      ],
+      "links": {
+        "github": "https://github.com/sheikh92areeb/twitter-clone",
+        "live": "https://twitter-clone-118.netlify.app/"
+      }
     }
   ]
 }
